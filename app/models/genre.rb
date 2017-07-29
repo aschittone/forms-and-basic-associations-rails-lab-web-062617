@@ -1,3 +1,11 @@
 class Genre < ActiveRecord::Base
   has_many :songs
+
+  def genre_ids=(ids)
+     ids.each do |id|
+       song = Song.find(id)
+       self.songs << song
+     end
+   end
+
 end
